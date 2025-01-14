@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 from typing import Iterable
 
@@ -6,7 +5,7 @@ from textual import on
 from textual.app import ComposeResult
 from textual.containers import Grid, Horizontal
 from textual.screen import ModalScreen
-from textual.widgets import Button, DirectoryTree, Header, Input, Label
+from textual.widgets import Button, DirectoryTree, Header, Label
 
 
 class FilteredDirectoryTree(DirectoryTree):
