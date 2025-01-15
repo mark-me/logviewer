@@ -12,6 +12,7 @@ class LogViewer(App):
     """Log viewer app"""
 
     BINDINGS = [
+        ("q", "quit", "Quit"),
         ("f", "open_file", "Open file"),
         ("a", "sort_by_asc_time", "Sort asctime"),
         ("d", "toggle_dark", "Toggle dark mode"),
