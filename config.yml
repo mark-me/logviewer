@@ -1,1 +1,2 @@
 file_default: "example_log.json"
+dir_default: '/home/mark/Development'

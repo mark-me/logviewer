@@ -10,8 +10,9 @@ from textual.widgets import Button, DirectoryTree, Header, Label
 
 class FilteredDirectoryTree(DirectoryTree):
     def filter_paths(self, paths: Iterable[Path]) -> Iterable[Path]:
+        lst_extensions = [".json", ".log"] + ['.' + str(i) for i in range(50)]
         paths = [path for path in paths if not path.name.startswith(".")]
-        paths = [path for path in paths if path.suffix in [".json", ".log"] or path.is_dir()]
+        paths = [path for path in paths if path.suffix in lst_extensions or path.is_dir()]
         return paths
 
 class OpenFileDialog(ModalScreen):

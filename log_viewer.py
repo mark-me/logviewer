@@ -8,6 +8,7 @@ from textual.widgets import Footer, Header, DataTable
 
 from open_dialog import OpenFileDialog
 
+
 class LogViewer(App):
     """Log viewer app"""
 
@@ -21,10 +22,17 @@ class LogViewer(App):
     current_sorts: set = set()
 
     def __init__(
-        self, file_log: str="", driver_class=None, css_path=None, watch_css=False, ansi_color=False
+        self,
+        file_log: str = "",
+        dir_default: str = "",
+        driver_class=None,
+        css_path=None,
+        watch_css=False,
+        ansi_color=False,
     ):
         super().__init__(driver_class, css_path, watch_css, ansi_color)
         self.file_log = file_log
+        self.dir_default = dir_default
         if file_log == "":
             self.sub_title = "No log file opened"
         else:
@@ -82,16 +90,17 @@ class LogViewer(App):
         self.query_one("DataTable").focus()
 
     def action_open_file(self) -> None:
-        if "Windows" in platform.platform():
-            self.push_screen(
-                OpenFileDialog(root="C:/"),
-                self.open_file_dialog_callback,
-            )
+        if self.dir_default == "":
+            if "Windows" in platform.platform():
+                dir_default = "C:/"
+            else:
+                dir_default = os.path.expanduser("~")
         else:
-            self.push_screen(
-                OpenFileDialog(root=os.path.expanduser("~")),
-                self.open_file_dialog_callback,
-            )
+            dir_default = self.dir_default
+        self.push_screen(
+            OpenFileDialog(root=dir_default),
+            self.open_file_dialog_callback,
+        )
 
     def open_file_dialog_callback(self, file: str) -> None:
         if file:
@@ -125,4 +134,3 @@ class LogViewer(App):
         self.theme = (
             "textual-dark" if self.theme == "textual-light" else "textual-light"
         )
-
