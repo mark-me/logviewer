@@ -24,7 +24,7 @@ class OpenFileDialog(ModalScreen):
     #save_dialog{
         grid-size: 1 4;
         grid-gutter: 1 2;
-        grid-rows: 5% 70% 25%;
+        grid-rows: 5% 75% 20%;
         padding: 0 1;
         width: 100;
         height: 25;

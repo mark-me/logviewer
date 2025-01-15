@@ -79,7 +79,7 @@ class LogViewer(App):
     def action_open_file(self) -> None:
         if "Windows" in platform.platform():
             self.push_screen(
-                OpenFileDialog(root=os.path.expanduser("~")),
+                OpenFileDialog(root="C:/"),
                 self.open_file_dialog_callback,
             )
         else:
