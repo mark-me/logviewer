@@ -20,7 +20,7 @@ class LogViewer(App):
     DEFAULT_CSS = """
     #app_grid{
         grid-size: 1 4;
-        grid-rows: 85% 15%;
+        grid-rows: 75% 25%;
         padding: 0 1;
         width: 100%;
         height: 100%;
@@ -31,6 +31,7 @@ class LogViewer(App):
         grid-columns: auto 1fr;
         grid-gutter: 1;
         padding: 0 1;
+        border: round gray;
         width: 100%;
     }
     """
@@ -132,7 +133,7 @@ class LogViewer(App):
             "INFO": "steel_blue3",
             "DEBUG": "grey62",
         }
-        if Path(file_log).exists():
+        if not Path(file_log).exists():
             logger.error(f"Logfile '{file_log}' does not exist.")
         with open(file_log, "r") as file:
             logger.debug(f"Loading log file '{file_log}'")
