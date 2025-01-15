@@ -24,6 +24,10 @@ class LogViewer(App):
     ):
         super().__init__(driver_class, css_path, watch_css, ansi_color)
         self.file_log = file_log
+        if file_log == "":
+            self.sub_title = "No log file opened"
+        else:
+            self.sub_title = file_log
         self.tpl_log = ()
         self.tpl_table_headers = ()
 
@@ -92,6 +96,7 @@ class LogViewer(App):
         if file:
             self.notify(f"Opened file: '{file}'")
             self.file_log = file
+            self.sub_title = file
             self.load_log(file_log=file)
             self.populate_table()
         else:
