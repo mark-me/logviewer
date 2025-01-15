@@ -16,15 +16,15 @@ class FilteredDirectoryTree(DirectoryTree):
 
 class OpenFileDialog(ModalScreen):
     DEFAULT_CSS = """
-    SaveFileDialog {
+    OpenFileDialog {
     align: center middle;
     background: $primary 30%;
     }
 
     #save_dialog{
-        grid-size: 1 5;
+        grid-size: 1 4;
         grid-gutter: 1 2;
-        grid-rows: 5% 45% 15% 30%;
+        grid-rows: 5% 70% 25%;
         padding: 0 1;
         width: 100;
         height: 25;
