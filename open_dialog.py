@@ -22,7 +22,7 @@ class OpenFileDialog(ModalScreen):
     background: $primary 30%;
     }
 
-    #save_dialog{
+    #open_dialog{
         grid-size: 1 4;
         grid-gutter: 1 2;
         grid-rows: 5% 75% 20%;
@@ -57,7 +57,7 @@ class OpenFileDialog(ModalScreen):
                 Button("Open File", variant="primary", id="open_file", disabled=True),
                 Button("Cancel", variant="error", id="cancel_file"),
             ),
-            id="save_dialog",
+            id="open_dialog",
         )
 
     def on_mount(self) -> None:

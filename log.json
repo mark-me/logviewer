@@ -1,0 +1,14 @@
+{"asctime": "2025-01-15 23:00:20,831", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 229261}
+{"asctime": "2025-01-15 23:01:02,121", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "main", "funcName": "read_config", "process": 229705}
+{"asctime": "2025-01-15 23:01:02,125", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "main", "funcName": "read_config", "process": 229705}
+{"asctime": "2025-01-15 23:01:02,126", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "main", "funcName": "read_config", "process": 229705}
+{"asctime": "2025-01-15 23:01:02,217", "levelname": "ERROR", "message": "Logfile 'log.json' does not exist.", "module": "log_viewer", "funcName": "load_log", "process": 229705}
+{"asctime": "2025-01-15 23:01:02,217", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 229705}
+{"asctime": "2025-01-15 23:02:25,249", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "main", "funcName": "read_config", "process": 230503}
+{"asctime": "2025-01-15 23:02:25,252", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "main", "funcName": "read_config", "process": 230503}
+{"asctime": "2025-01-15 23:02:25,253", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "main", "funcName": "read_config", "process": 230503}
+{"asctime": "2025-01-15 23:02:25,355", "levelname": "ERROR", "message": "Logfile 'log.json' does not exist.", "module": "log_viewer", "funcName": "load_log", "process": 230503}
+{"asctime": "2025-01-15 23:02:25,355", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 230503}
+{"asctime": "2025-01-15 23:02:29,301", "levelname": "DEBUG", "message": "Reloading log data", "module": "log_viewer", "funcName": "action_reload_log", "process": 230503}
+{"asctime": "2025-01-15 23:02:31,724", "levelname": "ERROR", "message": "Logfile 'log.json' does not exist.", "module": "log_viewer", "funcName": "load_log", "process": 230503}
+{"asctime": "2025-01-15 23:02:31,724", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 230503}
