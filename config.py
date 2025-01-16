@@ -2,7 +2,6 @@ from pathlib import Path
 import tomllib
 
 import toml
-import yaml
 
 from logging_config import logging
 
