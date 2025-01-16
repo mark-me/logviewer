@@ -20,6 +20,8 @@ class ConfigFile:
 
     @file_default.setter
     def file_default(self, value: str) -> None:
+        if isinstance(value, Path):
+            value = str(value)
         if Path(value).exists():
             self._data["file_default"] = value
             self._write_file()
