@@ -187,6 +187,7 @@ class LogViewer(App):
         logger.debug("Reloading log data")
         self.load_log(file_log=self.file_log)
         self.populate_table()
+        self.notify(f"Reloaded the log file '{self.file_log}'")
 
     def open_file_dialog_callback(self, file: str) -> None:
         if file:
