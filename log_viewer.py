@@ -221,7 +221,8 @@ class LogViewer(App):
         self.theme = (
             "textual-dark" if self.theme == "textual-light" else "textual-light"
         )
+        self.notify(f"Switched to theme '{self.theme}'")
 
     def action_set_default_file(self) -> None:
         self.config_file.file_default = self.file_log
-        self.notify(f"Set '{self.file_log}' as dedault log file")
+        self.notify(f"Set '{self.file_log}' as default log file")
