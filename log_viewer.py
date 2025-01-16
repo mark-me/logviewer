@@ -126,7 +126,7 @@ class LogViewer(App):
             label_id= "#label_" + col
             self.query_one(label_id).update("")
 
-    def load_log(self, file_log: str) -> tuple[list, tuple]:
+    def load_log(self, file_log: str):
         """Loads the logfile"""
         log = []
         columns = ()
@@ -136,25 +136,27 @@ class LogViewer(App):
             "INFO": "steel_blue3",
             "DEBUG": "grey62",
         }
-        if not Path(file_log).exists():
+        if Path(file_log).exists():
+            with open(file_log, "r") as file:
+                logger.debug(f"Loading log file '{file_log}'")
+                for line in file:
+                    log_entry = json.loads(line)
+                    columns = tuple(log_entry.keys())
+                    entry = ()
+                    for item in log_entry.items():
+                        if item[0] == "levelname":
+                            text = Text(item[1])
+                            text.stylize(f"bold {colors_level[item[1]]}")
+                            entry = entry + (text,)
+                        else:
+                            entry = entry + (item[1],)
+                    log.append(entry)
+            self.sub_title = self.file_log
+            self.tpl_table_headers = columns
+            log.reverse()
+            self.tpl_log = log
+        else:
             logger.error(f"Logfile '{file_log}' does not exist.")
-        with open(file_log, "r") as file:
-            logger.debug(f"Loading log file '{file_log}'")
-            for line in file:
-                log_entry = json.loads(line)
-                columns = tuple(log_entry.keys())
-                entry = ()
-                for item in log_entry.items():
-                    if item[0] == "levelname":
-                        text = Text(item[1])
-                        text.stylize(f"bold {colors_level[item[1]]}")
-                        entry = entry + (text,)
-                    else:
-                        entry = entry + (item[1],)
-                log.append(entry)
-        log.reverse()
-        self.tpl_table_headers = columns
-        self.tpl_log = log
 
     def populate_table(self) -> None:
         """Populates the DataTable"""
