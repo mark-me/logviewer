@@ -9,6 +9,7 @@ from textual.app import App, ComposeResult
 from textual.containers import Grid, Horizontal, Vertical
 from textual.widgets import Footer, Header, DataTable, Label, TextArea
 
+from config import ConfigFile
 from logging_config import logging
 from open_dialog import OpenFileDialog
 
@@ -38,30 +39,31 @@ class LogViewer(App):
 
     BINDINGS = [
         ("q", "quit", "Quit"),
-        ("f", "open_file", "Open file"),
-        ("r", "reload_log", "Reload log"),
+        ("f", "open_file", "Open"),
+        ("r", "reload_log", "Reload"),
         ("a", "sort_by_asc_time", "Sort asctime"),
-        ("d", "toggle_dark", "Toggle dark mode"),
+        ("d", "set_default_file", "Current log as default"),
+        ("t", "toggle_dark", "Toggle dark mode"),
     ]
 
     current_sorts: set = set()
 
     def __init__(
         self,
-        file_log: str = "",
-        dir_default: str = "",
+        config_file: ConfigFile,
         driver_class=None,
         css_path=None,
         watch_css=False,
         ansi_color=False,
     ):
         super().__init__(driver_class, css_path, watch_css, ansi_color)
-        self.file_log = file_log
-        self.dir_default = dir_default
-        if file_log == "":
+        self.config_file = config_file
+        self.file_log = config_file.file_default
+        self.dir_default = config_file.dir_default
+        if self.file_log == "":
             self.sub_title = "No log file opened"
         else:
-            self.sub_title = file_log
+            self.sub_title = self.file_log
         self.tpl_log = ()
         self.tpl_table_headers = ()
 
@@ -215,3 +217,6 @@ class LogViewer(App):
         self.theme = (
             "textual-dark" if self.theme == "textual-light" else "textual-light"
         )
+
+    def action_set_default_file(self) -> None:
+        self.config_file.file_default = self.file_log

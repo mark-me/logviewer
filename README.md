@@ -2,4 +2,9 @@
 
 A log viewer for json logs...
 
-A default log file can be added using the config.yml file.
+Before use you need to set up a virutal environment in the subdirectory .venv
+
+```bash
+python -m venv .venv
+pip install -r requirements.txt
+```

@@ -12,3 +12,64 @@
 {"asctime": "2025-01-15 23:02:29,301", "levelname": "DEBUG", "message": "Reloading log data", "module": "log_viewer", "funcName": "action_reload_log", "process": 230503}
 {"asctime": "2025-01-15 23:02:31,724", "levelname": "ERROR", "message": "Logfile 'log.json' does not exist.", "module": "log_viewer", "funcName": "load_log", "process": 230503}
 {"asctime": "2025-01-15 23:02:31,724", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 230503}
+{"asctime": "2025-01-16 21:41:13,712", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 39043}
+{"asctime": "2025-01-16 21:41:13,714", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 39043}
+{"asctime": "2025-01-16 21:41:13,714", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 39043}
+{"asctime": "2025-01-16 21:41:33,572", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 39266}
+{"asctime": "2025-01-16 21:41:33,573", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 39266}
+{"asctime": "2025-01-16 21:41:33,573", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 39266}
+{"asctime": "2025-01-16 21:41:33,583", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 39266}
+{"asctime": "2025-01-16 21:45:19,171", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 40584}
+{"asctime": "2025-01-16 21:45:19,175", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 40584}
+{"asctime": "2025-01-16 21:45:19,175", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 40584}
+{"asctime": "2025-01-16 21:45:58,696", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 40921}
+{"asctime": "2025-01-16 21:45:58,703", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 40921}
+{"asctime": "2025-01-16 21:45:58,704", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 40921}
+{"asctime": "2025-01-16 21:47:23,601", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 41522}
+{"asctime": "2025-01-16 21:47:23,606", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 41522}
+{"asctime": "2025-01-16 21:47:23,606", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 41522}
+{"asctime": "2025-01-16 21:47:39,444", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 41705}
+{"asctime": "2025-01-16 21:47:39,449", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 41705}
+{"asctime": "2025-01-16 21:47:39,449", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 41705}
+{"asctime": "2025-01-16 21:47:59,542", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 41918}
+{"asctime": "2025-01-16 21:47:59,548", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 41918}
+{"asctime": "2025-01-16 21:47:59,548", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 41918}
+{"asctime": "2025-01-16 21:48:11,210", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 41918}
+{"asctime": "2025-01-16 21:48:11,320", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 41918}
+{"asctime": "2025-01-16 21:54:04,226", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 44211}
+{"asctime": "2025-01-16 21:54:04,231", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 44211}
+{"asctime": "2025-01-16 21:54:04,231", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 44211}
+{"asctime": "2025-01-16 21:54:18,392", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 44211}
+{"asctime": "2025-01-16 21:54:18,515", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 44211}
+{"asctime": "2025-01-16 21:56:26,830", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 45220}
+{"asctime": "2025-01-16 21:56:26,834", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 45220}
+{"asctime": "2025-01-16 21:56:26,834", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 45220}
+{"asctime": "2025-01-16 21:56:26,855", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 45220}
+{"asctime": "2025-01-16 21:56:26,962", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 45220}
+{"asctime": "2025-01-16 21:57:35,768", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 45891}
+{"asctime": "2025-01-16 21:57:35,775", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 45891}
+{"asctime": "2025-01-16 21:57:35,775", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 45891}
+{"asctime": "2025-01-16 21:57:35,799", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 45891}
+{"asctime": "2025-01-16 21:57:35,904", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 45891}
+{"asctime": "2025-01-16 21:58:13,928", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 46297}
+{"asctime": "2025-01-16 21:58:49,531", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 46618}
+{"asctime": "2025-01-16 21:58:49,536", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 46618}
+{"asctime": "2025-01-16 21:58:49,536", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 46618}
+{"asctime": "2025-01-16 21:58:49,558", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 46618}
+{"asctime": "2025-01-16 21:58:49,676", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 46618}
+{"asctime": "2025-01-16 22:00:19,105", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 47370}
+{"asctime": "2025-01-16 22:00:19,110", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 47370}
+{"asctime": "2025-01-16 22:00:19,111", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 47370}
+{"asctime": "2025-01-16 22:00:19,126", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 47370}
+{"asctime": "2025-01-16 22:00:19,247", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 47370}
+{"asctime": "2025-01-16 22:01:44,425", "levelname": "DEBUG", "message": "Found config file 'config.yml'", "module": "config", "funcName": "read", "process": 48046}
+{"asctime": "2025-01-16 22:01:44,429", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "read", "process": 48046}
+{"asctime": "2025-01-16 22:01:44,430", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "read", "process": 48046}
+{"asctime": "2025-01-16 22:01:44,451", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 48046}
+{"asctime": "2025-01-16 22:01:44,561", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 48046}
+{"asctime": "2025-01-16 22:21:10,594", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 55301}
+{"asctime": "2025-01-16 22:21:10,597", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "_read_file_default", "process": 55301}
+{"asctime": "2025-01-16 22:21:10,598", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "_read_dir_default", "process": 55301}
+{"asctime": "2025-01-16 22:21:10,617", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 55301}
+{"asctime": "2025-01-16 22:21:10,746", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 55301}
+{"asctime": "2025-01-16 22:22:11,059", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 55884}
