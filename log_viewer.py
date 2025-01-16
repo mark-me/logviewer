@@ -97,6 +97,7 @@ class LogViewer(App):
             self.load_log(file_log=self.file_log)
         self.populate_table()
 
+    @on(DataTable.RowHighlighted)
     @on(DataTable.RowSelected)
     def on_row_selected(self, message: DataTable.RowSelected) -> None:
         """
