@@ -224,3 +224,4 @@ class LogViewer(App):
 
     def action_set_default_file(self) -> None:
         self.config_file.file_default = self.file_log
+        self.notify(f"Set '{self.file_log}' as dedault log file")
