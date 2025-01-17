@@ -6,6 +6,10 @@ from textual.containers import Grid, Horizontal
 from textual.screen import ModalScreen
 from textual.widgets import Button, DirectoryTree, Header, Input, Label
 
+from logging_config import logging
+
+logger = logging.getLogger(__name__)
+
 
 class SaveFileDialog(ModalScreen):
     DEFAULT_CSS = """

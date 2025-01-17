@@ -58,7 +58,7 @@ class LogViewer(App):
         ansi_color=False,
     ):
         super().__init__(driver_class, css_path, watch_css, ansi_color)
-        self.config_file = config_file
+        self.config = config_file
         self.file_log = config_file.file_default
         self.dir_default = config_file.dir_default
         if self.file_log == "":
@@ -131,12 +131,7 @@ class LogViewer(App):
         """Loads the logfile"""
         log = []
         columns = ()
-        colors_level = {
-            "ERROR": "red",
-            "WARNING": "dark_orange",
-            "INFO": "steel_blue3",
-            "DEBUG": "grey62",
-        }
+        colors_level = self.config.level_colors
         if Path(file_log).exists():
             with open(file_log, "r") as file:
                 logger.debug(f"Loading log file '{file_log}'")
@@ -225,5 +220,5 @@ class LogViewer(App):
         self.notify(f"Switched to theme '{self.theme}'")
 
     def action_set_default_file(self) -> None:
-        self.config_file.file_default = self.file_log
+        self.config.file_default = self.file_log
         self.notify(f"Set '{self.file_log}' as default log file")
