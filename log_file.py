@@ -17,9 +17,9 @@ class LogFile:
             self._file = ""
             logger.error(f"Log file '{self._file}' does not exist")
         else:
-            self.load_file()
+            self._load_file()
 
-    def load_file(self) -> bool:
+    def _load_file(self) -> bool:
         """Loads the logfile"""
         success = False
         if self._file.exists():
@@ -29,6 +29,14 @@ class LogFile:
         else:
             logger.error(f"Log file '{self._file}' does not exist")
         return success
+
+    def load(self, file_log: str):
+        self._file = Path(file_log)
+        if not self._file.exists():
+            self._file = ""
+            logger.error(f"Log file '{self._file}' does not exist")
+        else:
+            self._load_file()
 
     def entries_formatted(self, level_colors: dict) -> list:
         lst_entries = []

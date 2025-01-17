@@ -64,6 +64,7 @@ class LogViewer(App):
         if self._file_log == "":
             self.sub_title = "No log file opened"
         else:
+            self._log_file = LogFile(file_log=self._file_log)
             self.sub_title = self._file_log
 
     def compose(self) -> ComposeResult:
@@ -129,11 +130,11 @@ class LogViewer(App):
         table = table.clear(columns=True)
         table.cursor_type = "row"
         table.zebra_stripes = True
-        log_file = LogFile(file_log=self._file_log)
-        for col in log_file.headers:
+        self._log_file = LogFile(file_log=self._file_log)
+        for col in self._log_file.headers:
             table.add_column(col, key=col)
-        rows = log_file.entries_formatted(
-            level_colors=self._config.dict_level_colors_defaults
+        rows = self._log_file.entries_formatted(
+            level_colors=self._config.level_colors
         )
         table.add_rows(rows)
         self.query_one("DataTable").focus()
