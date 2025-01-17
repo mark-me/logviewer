@@ -67,6 +67,16 @@ class ConfigFile:
                 self._data["level_colors"] = self._defaults["level_colors"]
         else:
             self._data["level_colors"] = self._defaults["level_colors"]
+        self._write_file()
+
+    @property
+    def export_excludes(self) -> list:
+        return self._data["export_excludes"]
+
+    @export_excludes.setter
+    def export_excludes(self, value: list) -> None:
+        self._data["export_excludes"] = value
+        self._write_file()
 
     def _read_file(self):
         if Path(self._file).exists():

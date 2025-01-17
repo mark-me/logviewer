@@ -64,3 +64,15 @@ class LogFile:
     def entries(self) -> tuple:
         lst_entries = list(self._df_log.itertuples(index=False, name=None))
         return lst_entries
+
+    @property
+    def runs(self) -> list:
+        lst_runs = []
+        df_runs = (
+            self._df_log.groupby("process")
+            .agg({"asctime": ["max"]})
+            .reset_index()
+        ).sort_values("asctime", ascending=False)
+        for index, row in df_runs.iterrows():
+            lst_runs.append((row["asctime"].values[0], row["process"].values[0]))
+        return lst_runs

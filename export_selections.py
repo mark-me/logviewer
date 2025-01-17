@@ -4,7 +4,7 @@ from textual import on
 from textual.app import ComposeResult
 from textual.containers import Grid, Horizontal
 from textual.screen import ModalScreen
-from textual.widgets import Button, DirectoryTree, Header, Input, Label, RadioSet
+from textual.widgets import Button, Header, Label, RadioButton, Select
 
 from config import ConfigFile
 from log_file import LogFile
@@ -13,7 +13,37 @@ from logging_config import logging
 logger = logging.getLogger(__name__)
 
 
-class SaveFileDialog(ModalScreen):
+class HeaderOptions(Horizontal):
+    DEFAULT_CSS = """
+    Column {
+        height: 100%;
+        margin: 0 2;
+    }
+    """
+
+    def __init__(
+        self,
+        *children,
+        columns: list,
+        excludes: list,
+        name=None,
+        id=None,
+        classes=None,
+        disabled=False,
+    ):
+        super().__init__(
+            *children, name=name, id=id, classes=classes, disabled=disabled
+        )
+        self._columns = columns
+        self._excludes = excludes
+
+    def compose(self) -> ComposeResult:
+        for column in self._columns:
+            is_excluded = column in self._excludes
+            yield RadioButton(column, id=column, value=is_excluded)
+
+
+class ExportOptions(ModalScreen):
     DEFAULT_CSS = """
     SaveFileDialog {
     align: center middle;
@@ -23,7 +53,7 @@ class SaveFileDialog(ModalScreen):
     #save_dialog{
         grid-size: 1 5;
         grid-gutter: 1 2;
-        grid-rows: 5% 45% 15% 30%;
+        grid-rows: 5% 45% 30%;
         padding: 0 1;
         width: 100;
         height: 25;
@@ -41,31 +71,28 @@ class SaveFileDialog(ModalScreen):
         config: ConfigFile,
         log_file: LogFile,
         root="/",
-        columns: list=[],
+        columns: list = [],
         name: str | None = None,
         id: str | None = None,
         classes: str | None = None,
     ) -> None:
         super().__init__(name, id, classes)
+        self._log_file = log_file
+        self._config = config
         self.title = "Export log errors/warnings"
         self._root = root
         self._folder = root
-        self._columns = columns
 
-    def compose(self) -> ComposeResave_dialog.pysult:
+    def compose(self) -> ComposeResult:
         """
         Create the widgets for the SaveFileDialog's user interface
         """
         yield Grid(
             Header(),
             Label(f"Export options: {self._root}", id="folder"),
-            DirectoryTree(self._root, id="directory"),
-            Input(placeholder="filename.txt", id="filename"),
-            RadioSet(*self._columns
-            ),
-            Horizontal(
-                Button("Save File", variant="primary", id="save_file"),
-                Button("Cancel", variant="error", id="cancel_file"),
+            Select(options=self._log_file.runs),
+            HeaderOptions(
+                columns=self._log_file.headers, excludes=self._config.export_excludes
             ),
             id="save_dialog",
         )
@@ -74,7 +101,7 @@ class SaveFileDialog(ModalScreen):
         """
         Focus the input widget so the user can name the file
         """
-        self.query_one("#filename").focus()
+        pass
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         """
@@ -87,11 +114,3 @@ class SaveFileDialog(ModalScreen):
             self.dismiss(full_path)
         else:
             self.dismiss(False)
-
-    @on(DirectoryTree.DirectorySelected)
-    def on_directory_selection(self, event: DirectoryTree.DirectorySelected) -> None:
-        """
-        Called when the DirectorySelected message is emitted from the DirectoryTree
-        """
-        self._folder = event.path
-        self.query_one("#folder").update(f"Folder name: {self._folder}")

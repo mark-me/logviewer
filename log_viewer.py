@@ -10,7 +10,7 @@ from config import ConfigFile
 from log_file import LogFile
 from logging_config import logging
 from open_dialog import OpenFileDialog
-from save_dialog import SaveFileDialog
+from export_selections import ExportOptions
 
 logger = logging.getLogger(__name__)
 
@@ -133,9 +133,7 @@ class LogViewer(App):
         self._log_file = LogFile(file_log=self._file_log)
         for col in self._log_file.headers:
             table.add_column(col, key=col)
-        rows = self._log_file.entries_formatted(
-            level_colors=self._config.level_colors
-        )
+        rows = self._log_file.entries_formatted(level_colors=self._config.level_colors)
         table.add_rows(rows)
         self.query_one("DataTable").focus()
 
@@ -154,12 +152,8 @@ class LogViewer(App):
         """Opens a file chooser dialog"""
         table_columns = self.query_one("DataTable").columns
         log_columns = [v.label.plain for k, v in table_columns.items()]
-        if self._dir_default == "":
-            dir_default = os.path.expanduser("~")
-        else:
-            dir_default = self._dir_default
         self.push_screen(
-            SaveFileDialog(root=dir_default, columns=log_columns),
+            ExportOptions(config=self._config, log_file=self._log_file),
             self.export_file_dialog_callback,
         )
 
