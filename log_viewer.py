@@ -1,7 +1,4 @@
-import json
 import os
-import platform
-from pathlib import Path
 
 from rich.text import Text
 from textual import on
@@ -10,6 +7,7 @@ from textual.containers import Grid, Horizontal, Vertical
 from textual.widgets import DataTable, Footer, Header, Label, TextArea
 
 from config import ConfigFile
+from log_file import LogFile
 from logging_config import logging
 from open_dialog import OpenFileDialog
 from save_dialog import SaveFileDialog
@@ -19,6 +17,7 @@ logger = logging.getLogger(__name__)
 
 class LogViewer(App):
     """Log viewer app"""
+
     DEFAULT_CSS = """
     #app_grid{
         grid-size: 1 4;
@@ -42,6 +41,7 @@ class LogViewer(App):
         ("q", "quit", "Quit"),
         ("f", "open_file", "Open"),
         ("r", "reload_log", "Reload"),
+        ("e", "export_file", "Export log"),
         ("a", "sort_by_asc_time", "Sort asctime"),
         ("d", "set_default_file", "Current log as default"),
         ("t", "toggle_dark", "Toggle dark mode"),
@@ -58,45 +58,41 @@ class LogViewer(App):
         ansi_color=False,
     ):
         super().__init__(driver_class, css_path, watch_css, ansi_color)
-        self.config = config_file
-        self.file_log = config_file.file_default
-        self.dir_default = config_file.dir_default
-        if self.file_log == "":
+        self._config = config_file
+        self._file_log = config_file.file_default
+        self._dir_default = config_file.dir_default
+        if self._file_log == "":
             self.sub_title = "No log file opened"
         else:
-            self.sub_title = self.file_log
-        self.tpl_log = ()
-        self.tpl_table_headers = ()
+            self.sub_title = self._file_log
 
     def compose(self) -> ComposeResult:
         """Create child widgets for the app."""
         yield Grid(
             Header(),
-            Horizontal(
-                DataTable(id="table"),
-                id="panel_table"
-            ),
+            Horizontal(DataTable(id="table"), id="panel_table"),
             Grid(
                 Vertical(
                     Label("Level", id="label_levelname"),
                     Label("AscTime", id="label_asctime"),
                     Label("Module", id="label_module"),
                     Label("Function", id="label_funcName"),
-                    id="bottom_left"
+                    id="bottom_left",
                 ),
-                TextArea("Message", language="markdown", id="label_message", read_only=True),
-                id="panel_details"
+                TextArea(
+                    "Message", language="markdown", id="label_message", read_only=True
+                ),
+                id="panel_details",
             ),
             Footer(),
-            id="app_grid"
+            id="app_grid",
         )
 
     def on_mount(self) -> None:
-        if self.file_log == "":
+        if self._file_log == "":
             self.action_open_file()
         else:
-            self.load_log(file_log=self.file_log)
-        self.populate_table()
+            self.populate_table()
 
     @on(DataTable.RowHighlighted)
     @on(DataTable.RowSelected)
@@ -115,44 +111,17 @@ class LogViewer(App):
                 label_value = Text()
                 label_value.append(col + ": ", style="bold")
                 label_value.append(value)
-            label_id= "#label_" + col
+            label_id = "#label_" + col
             if col == "message":
                 self.query_one(label_id).load_text(value)
             elif col in ["levelname", "asctime"]:
                 self.query_one(label_id).update(value)
             else:
                 self.query_one(label_id).update(label_value)
-        # Empty values
+        # Setting empty values for columns which are not in the log
         for col in lst_col_missing:
-            label_id= "#label_" + col
+            label_id = "#label_" + col
             self.query_one(label_id).update("")
-
-    def load_log(self, file_log: str):
-        """Loads the logfile"""
-        log = []
-        columns = ()
-        colors_level = self.config.level_colors
-        if Path(file_log).exists():
-            with open(file_log, "r") as file:
-                logger.debug(f"Loading log file '{file_log}'")
-                for line in file:
-                    log_entry = json.loads(line)
-                    columns = tuple(log_entry.keys())
-                    entry = ()
-                    for item in log_entry.items():
-                        if item[0] == "levelname":
-                            text = Text(item[1])
-                            text.stylize(f"bold {colors_level[item[1]]}")
-                            entry = entry + (text,)
-                        else:
-                            entry = entry + (item[1],)
-                    log.append(entry)
-            self.sub_title = self.file_log
-            self.tpl_table_headers = columns
-            log.reverse()
-            self.tpl_log = log
-        else:
-            logger.error(f"Logfile '{file_log}' does not exist.")
 
     def populate_table(self) -> None:
         """Populates the DataTable"""
@@ -160,38 +129,54 @@ class LogViewer(App):
         table = table.clear(columns=True)
         table.cursor_type = "row"
         table.zebra_stripes = True
-        for col in self.tpl_table_headers:
+        log_file = LogFile(file_log=self._file_log)
+        for col in log_file.headers:
             table.add_column(col, key=col)
-        table.add_rows(self.tpl_log)
+        rows = log_file.entries_formatted(
+            level_colors=self._config.dict_level_colors_defaults
+        )
+        table.add_rows(rows)
         self.query_one("DataTable").focus()
 
     def action_open_file(self) -> None:
         """Opens a file chooser dialog"""
-        if self.dir_default == "":
-            if "Windows" in platform.platform():
-                dir_default = "C:/"
-            else:
-                dir_default = os.path.expanduser("~")
+        if self._dir_default == "":
+            dir_default = os.path.expanduser("~")
         else:
-            dir_default = self.dir_default
+            dir_default = self._dir_default
         self.push_screen(
             OpenFileDialog(root=dir_default),
             self.open_file_dialog_callback,
         )
 
+    def action_export_file(self) -> None:
+        """Opens a file chooser dialog"""
+        if self._dir_default == "":
+            dir_default = os.path.expanduser("~")
+        else:
+            dir_default = self._dir_default
+        self.push_screen(
+            SaveFileDialog(root=dir_default),
+            self.export_file_dialog_callback,
+        )
+
     def action_reload_log(self) -> None:
         logger.debug("Reloading log data")
-        self.load_log(file_log=self.file_log)
         self.populate_table()
-        self.notify(f"Reloaded the log file '{self.file_log}'")
+        self.notify(f"Reloaded the log file '{self._file_log}'")
 
     def open_file_dialog_callback(self, file: str) -> None:
         if file:
             self.notify(f"Opened file: '{file}'")
-            self.file_log = file
+            self._file_log = file
             self.sub_title = file
-            self.load_log(file_log=file)
             self.populate_table()
+        else:
+            self.notify("You cancelled opening a file!")
+
+    def export_file_dialog_callback(self, file: str) -> None:
+        if file:
+            self.notify(f"Exported to file: '{file}'")
         else:
             self.notify("You cancelled opening a file!")
 
@@ -220,5 +205,5 @@ class LogViewer(App):
         self.notify(f"Switched to theme '{self.theme}'")
 
     def action_set_default_file(self) -> None:
-        self.config.file_default = self.file_log
-        self.notify(f"Set '{self.file_log}' as default log file")
+        self._config.file_default = self._file_log
+        self.notify(f"Set '{self._file_log}' as default log file")

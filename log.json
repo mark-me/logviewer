@@ -73,3 +73,20 @@
 {"asctime": "2025-01-16 22:21:10,617", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 55301}
 {"asctime": "2025-01-16 22:21:10,746", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_viewer", "funcName": "load_log", "process": 55301}
 {"asctime": "2025-01-16 22:22:11,059", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 55884}
+{"asctime": "2025-01-17 12:28:09,737", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_loader", "funcName": "load_file", "process": 17667}
+{"asctime": "2025-01-17 12:28:42,506", "levelname": "DEBUG", "message": "Loading log file 'log.json'", "module": "log_loader", "funcName": "load_file", "process": 17954}
+{"asctime": "2025-01-17 16:42:24,227", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 134858}
+{"asctime": "2025-01-17 16:42:24,228", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "_read_file_default", "process": 134858}
+{"asctime": "2025-01-17 16:42:24,228", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "_read_dir_default", "process": 134858}
+{"asctime": "2025-01-17 16:42:24,228", "levelname": "WARNING", "message": "Could not find color for 'INFO', using default", "module": "config", "funcName": "_read_level_colors", "process": 134858}
+{"asctime": "2025-01-17 16:42:24,242", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 134858}
+{"asctime": "2025-01-17 16:42:58,736", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 135197}
+{"asctime": "2025-01-17 16:42:58,738", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "_read_file_default", "process": 135197}
+{"asctime": "2025-01-17 16:42:58,738", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "_read_dir_default", "process": 135197}
+{"asctime": "2025-01-17 16:42:58,738", "levelname": "WARNING", "message": "Could not find color for 'INFO', using default", "module": "config", "funcName": "_read_level_colors", "process": 135197}
+{"asctime": "2025-01-17 16:42:58,786", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 135197}
+{"asctime": "2025-01-17 16:44:16,287", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 135758}
+{"asctime": "2025-01-17 16:44:16,289", "levelname": "INFO", "message": "Found config default log file 'log.json'", "module": "config", "funcName": "_read_file_default", "process": 135758}
+{"asctime": "2025-01-17 16:44:16,289", "levelname": "INFO", "message": "Found config default directory '/home/mark/Development'", "module": "config", "funcName": "_read_dir_default", "process": 135758}
+{"asctime": "2025-01-17 16:44:16,289", "levelname": "WARNING", "message": "Could not find color for 'INFO', using default", "module": "config", "funcName": "_read_level_colors", "process": 135758}
+{"asctime": "2025-01-17 16:44:16,337", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 135758}
