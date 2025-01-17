@@ -4,7 +4,7 @@ from textual import on
 from textual.app import ComposeResult
 from textual.containers import Grid, Horizontal
 from textual.screen import ModalScreen
-from textual.widgets import Button, DirectoryTree, Header, Input, Label
+from textual.widgets import Button, DirectoryTree, Header, Input, Label, RadioSet
 
 from logging_config import logging
 
@@ -37,14 +37,16 @@ class SaveFileDialog(ModalScreen):
     def __init__(
         self,
         root="/",
+        columns: list=[],
         name: str | None = None,
         id: str | None = None,
         classes: str | None = None,
     ) -> None:
         super().__init__(name, id, classes)
         self.title = "Export log errors/warnings"
-        self.root = root
-        self.folder = root
+        self._root = root
+        self._folder = root
+        self._columns = columns
 
     def compose(self) -> ComposeResult:
         """
@@ -52,9 +54,11 @@ class SaveFileDialog(ModalScreen):
         """
         yield Grid(
             Header(),
-            Label(f"Folder name: {self.root}", id="folder"),
-            DirectoryTree(self.root, id="directory"),
+            Label(f"Folder name: {self._root}", id="folder"),
+            DirectoryTree(self._root, id="directory"),
             Input(placeholder="filename.txt", id="filename"),
+            RadioSet(*self._columns
+            ),
             Horizontal(
                 Button("Save File", variant="primary", id="save_file"),
                 Button("Cancel", variant="error", id="cancel_file"),
@@ -75,7 +79,7 @@ class SaveFileDialog(ModalScreen):
         event.stop()
         if event.button.id == "save_file":
             filename = self.query_one("#filename").value
-            full_path = os.path.join(self.folder, filename)
+            full_path = os.path.join(self._folder, filename)
             self.dismiss(full_path)
         else:
             self.dismiss(False)
@@ -85,5 +89,5 @@ class SaveFileDialog(ModalScreen):
         """
         Called when the DirectorySelected message is emitted from the DirectoryTree
         """
-        self.folder = event.path
-        self.query_one("#folder").update(f"Folder name: {self.folder}")
+        self._folder = event.path
+        self.query_one("#folder").update(f"Folder name: {self._folder}")

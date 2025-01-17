@@ -151,12 +151,14 @@ class LogViewer(App):
 
     def action_export_file(self) -> None:
         """Opens a file chooser dialog"""
+        table_columns = self.query_one("DataTable").columns
+        log_columns = [v.label.plain for k, v in table_columns.items()]
         if self._dir_default == "":
             dir_default = os.path.expanduser("~")
         else:
             dir_default = self._dir_default
         self.push_screen(
-            SaveFileDialog(root=dir_default),
+            SaveFileDialog(root=dir_default, columns=log_columns),
             self.export_file_dialog_callback,
         )
 
