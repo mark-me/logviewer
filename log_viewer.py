@@ -7,10 +7,11 @@ from textual.containers import Grid, Horizontal, Vertical
 from textual.widgets import DataTable, Footer, Header, Label, TextArea
 
 from config import ConfigFile
+from dialog_export_selections import DialogExportOptions
 from log_file import LogFile
 from logging_config import logging
-from open_dialog import OpenFileDialog
-from export_selections import ExportOptions
+from dialog_open_log import DialogOpenLog
+from dialog_export_log import DialogExportLog
 
 logger = logging.getLogger(__name__)
 
@@ -144,17 +145,15 @@ class LogViewer(App):
         else:
             dir_default = self._dir_default
         self.push_screen(
-            OpenFileDialog(root=dir_default),
-            self.open_file_dialog_callback,
+            DialogOpenLog(root=dir_default),
+            self.dialog_callback_open_log,
         )
 
     def action_export_file(self) -> None:
         """Opens a file chooser dialog"""
-        table_columns = self.query_one("DataTable").columns
-        log_columns = [v.label.plain for k, v in table_columns.items()]
         self.push_screen(
-            ExportOptions(config=self._config, log_file=self._log_file),
-            self.export_file_dialog_callback,
+            DialogExportOptions(config=self._config, log_file=self._log_file),
+            self.dialog_callback_export_options,
         )
 
     def action_reload_log(self) -> None:
@@ -162,7 +161,18 @@ class LogViewer(App):
         self.populate_table()
         self.notify(f"Reloaded the log file '{self._file_log}'")
 
-    def open_file_dialog_callback(self, file: str) -> None:
+    def action_toggle_dark(self) -> None:
+        """An action to toggle dark mode."""
+        self.theme = (
+            "textual-dark" if self.theme == "textual-light" else "textual-light"
+        )
+        self.notify(f"Switched to theme '{self.theme}'")
+
+    def action_set_default_file(self) -> None:
+        self._config.file_default = self._file_log
+        self.notify(f"Set '{self._file_log}' as default log file")
+
+    def dialog_callback_open_log(self, file: str) -> None:
         if file:
             self.notify(f"Opened file: '{file}'")
             self._file_log = file
@@ -171,9 +181,28 @@ class LogViewer(App):
         else:
             self.notify("You cancelled opening a file!")
 
-    def export_file_dialog_callback(self, file: str) -> None:
+    def dialog_callback_export_options(self, options: str) -> None:
+        if options:
+            self.push_screen(
+                DialogExportLog(
+                    root=self._config.dir_default,
+                    log_file=self._log_file,
+                    export_options=options,
+                ),
+                self.dialog_callback_export_log,
+            )
+        else:
+            self.notify("You cancelled exporting a log!")
+
+    def dialog_callback_export_log(self, file: str) -> None:
         if file:
-            self.notify(f"Exported to file: '{file}'")
+            options = {
+                "exclude_cols": self._config.export_col_excludes,
+                "exclude_levels": self._config.export_level_excludes,
+            }
+            self._log_file.export(file=file, options=options)
+            self.notify(f"Exporting file: '{file}'")
+
         else:
             self.notify("You cancelled opening a file!")
 
@@ -193,14 +222,3 @@ class LogViewer(App):
         else:
             self.current_sorts.add(sort_type)
         return reverse
-
-    def action_toggle_dark(self) -> None:
-        """An action to toggle dark mode."""
-        self.theme = (
-            "textual-dark" if self.theme == "textual-light" else "textual-light"
-        )
-        self.notify(f"Switched to theme '{self.theme}'")
-
-    def action_set_default_file(self) -> None:
-        self._config.file_default = self._file_log
-        self.notify(f"Set '{self._file_log}' as default log file")

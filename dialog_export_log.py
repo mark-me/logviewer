@@ -4,14 +4,15 @@ from textual import on
 from textual.app import ComposeResult
 from textual.containers import Grid, Horizontal
 from textual.screen import ModalScreen
-from textual.widgets import Button, DirectoryTree, Header, Input, Label, RadioSet
+from textual.widgets import Button, DirectoryTree, Header, Input, Label
 
+from log_file import LogFile
 from logging_config import logging
 
 logger = logging.getLogger(__name__)
 
 
-class SaveFileDialog(ModalScreen):
+class DialogExportLog(ModalScreen):
     DEFAULT_CSS = """
     SaveFileDialog {
     align: center middle;
@@ -19,14 +20,18 @@ class SaveFileDialog(ModalScreen):
     }
 
     #save_dialog{
-        grid-size: 1 5;
+        grid-size: 1 4;
         grid-gutter: 1 2;
-        grid-rows: 5% 45% 15% 30%;
+        grid-rows: 5% 1fr 15% 10%;
         padding: 0 1;
         width: 100;
         height: 25;
         border: thick $background 70%;
         background: $surface-lighten-1;
+    }
+
+    #btns_dialog{
+        align: right bottom;
     }
 
     #save_file {
@@ -36,17 +41,20 @@ class SaveFileDialog(ModalScreen):
 
     def __init__(
         self,
-        root="/",
-        columns: list=[],
+        log_file: LogFile,
+        export_options: dict,
+        root: str="/",
         name: str | None = None,
         id: str | None = None,
         classes: str | None = None,
     ) -> None:
         super().__init__(name, id, classes)
-        self.title = "Export log errors/warnings"
+        self.title = "Export log"
         self._root = root
         self._folder = root
-        self._columns = columns
+        self.exclude_cols = export_options["exclude_cols"]
+        self.exclude_levels = export_options["exclude_levels"]
+        self._log_file = log_file
 
     def compose(self) -> ComposeResult:
         """
@@ -56,12 +64,11 @@ class SaveFileDialog(ModalScreen):
             Header(),
             Label(f"Folder name: {self._root}", id="folder"),
             DirectoryTree(self._root, id="directory"),
-            Input(placeholder="filename.txt", id="filename"),
-            RadioSet(*self._columns
-            ),
+            Input(placeholder="export.xlsx", id="filename"),
             Horizontal(
-                Button("Save File", variant="primary", id="save_file"),
                 Button("Cancel", variant="error", id="cancel_file"),
+                Button("Save File", variant="primary", id="save_file"),
+                id="btns_dialog"
             ),
             id="save_dialog",
         )

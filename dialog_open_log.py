@@ -15,7 +15,7 @@ class FilteredDirectoryTree(DirectoryTree):
         paths = [path for path in paths if path.suffix in lst_extensions or path.is_dir()]
         return paths
 
-class OpenFileDialog(ModalScreen):
+class DialogOpenLog(ModalScreen):
     DEFAULT_CSS = """
     OpenFileDialog {
     align: center middle;
@@ -23,14 +23,18 @@ class OpenFileDialog(ModalScreen):
     }
 
     #open_dialog{
-        grid-size: 1 4;
+        grid-size: 1 3;
         grid-gutter: 1 2;
-        grid-rows: 5% 75% 20%;
+        grid-rows: 5% 75% 1fr;
         padding: 0 1;
         width: 100;
         height: 25;
         border: thick $background 70%;
         background: $surface-lighten-1;
+    }
+
+    #btns_dialog{
+        align: right bottom;
     }
 
     #open_file {
@@ -54,8 +58,9 @@ class OpenFileDialog(ModalScreen):
             Label(f"Folder name: {self.root}", id="folder"),
             FilteredDirectoryTree(self.root, id="directory"),
             Horizontal(
-                Button("Open File", variant="primary", id="open_file", disabled=True),
                 Button("Cancel", variant="error", id="cancel_file"),
+                Button("Open File", variant="primary", id="open_file", disabled=True),
+                id="btns_dialog"
             ),
             id="open_dialog",
         )

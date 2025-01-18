@@ -76,3 +76,13 @@ class LogFile:
         for index, row in df_runs.iterrows():
             lst_runs.append((row["asctime"].values[0], row["process"].values[0]))
         return lst_runs
+
+    def export(self, file: str, options: dict) -> bool:
+        df_export = self._df_log
+        if len(options["exclude_cols"]) > 0:
+            # Remove columns
+            pass
+        if len(options["exclude_levels"]) > 0:
+            # Filter on levelnames
+            pass
+        df_export.to_excel(file)
