@@ -1,2 +1,7 @@
 file_default = "log.json"
 dir_default = "/home/mark/Development"
+
+[level_colors]
+DEBUG = "grey62"
+WARNING = "dark_orange"
+ERROR = "bright_red"
