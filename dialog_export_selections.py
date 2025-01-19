@@ -47,7 +47,7 @@ class DialogExportOptions(ModalScreen):
     DEFAULT_CSS = """
     DialogExportOptions {
     align: center middle;
-    background: $primary 30%;
+    background: black 30%;
     }
 
     #export_options_dialog{
