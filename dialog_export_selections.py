@@ -51,7 +51,7 @@ class SelectionList(Horizontal):
 
 class DialogExportOptions(ModalScreen):
     DEFAULT_CSS = """
-    SaveFileDialog {
+    DialogExportOptions {
     align: center middle;
     background: $primary 30%;
     }

@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 class DialogExportLog(ModalScreen):
     DEFAULT_CSS = """
-    SaveFileDialog {
+    DialogExportLog {
     align: center middle;
     background: $primary 30%;
     }

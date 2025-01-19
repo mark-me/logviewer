@@ -17,7 +17,7 @@ class FilteredDirectoryTree(DirectoryTree):
 
 class DialogOpenLog(ModalScreen):
     DEFAULT_CSS = """
-    OpenFileDialog {
+    DialogOpenLog {
     align: center middle;
     background: $primary 30%;
     }
