@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 class SelectionList(Horizontal):
     DEFAULT_CSS = """
     .button {
-        margin: 1 1 1 1;
+        margin: 2 2 2 2;
     }
     """
 
