@@ -6,7 +6,6 @@ from textual.containers import Grid, Horizontal
 from textual.screen import ModalScreen
 from textual.widgets import Button, DirectoryTree, Header, Input, Label
 
-from log_file import LogFile
 from logging_config import logging
 
 logger = logging.getLogger(__name__)
@@ -41,8 +40,6 @@ class DialogExportLog(ModalScreen):
 
     def __init__(
         self,
-        log_file: LogFile,
-        export_options: dict,
         root: str="/",
         name: str | None = None,
         id: str | None = None,
@@ -52,9 +49,6 @@ class DialogExportLog(ModalScreen):
         self.title = "Export log"
         self._root = root
         self._folder = root
-        self.exclude_cols = export_options["exclude_cols"]
-        self.exclude_levels = export_options["exclude_levels"]
-        self._log_file = log_file
 
     def compose(self) -> ComposeResult:
         """
@@ -86,6 +80,8 @@ class DialogExportLog(ModalScreen):
         event.stop()
         if event.button.id == "save_file":
             filename = self.query_one("#filename").value
+            if filename == "":
+                filename = self.query_one("#filename").placeholder
             full_path = os.path.join(self._folder, filename)
             self.dismiss(full_path)
         else:

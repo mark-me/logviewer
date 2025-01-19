@@ -103,7 +103,7 @@ class DialogExportOptions(ModalScreen):
         Create the widgets for the SaveFileDialog's user interface
         """
         level_names = ["DEBUG", "INFO", "WARNING", "ERROR"]
-        level_exclude = self._config.export_level_excludes
+        levels_exclude = self._config.export_level_excludes
         cols_log = self._log_file.headers
         cols_exclude = self._config.export_col_excludes
         yield Grid(
@@ -119,7 +119,7 @@ class DialogExportOptions(ModalScreen):
             Vertical(
                 Label("Levels to include"),
                 SelectionList(
-                    values=level_names, excludes=level_exclude, id="exclude_levels"
+                    values=level_names, excludes=levels_exclude, id="exclude_levels"
                 ),
                 classes="box",
             ),
@@ -143,15 +143,14 @@ class DialogExportOptions(ModalScreen):
         """
         event.stop()
         if event.button.id == "btn_file":
-            exclude_cols = self.query_one("#exclude_cols").excludes
-            exclude_levels = self.query_one("#exclude_levels").excludes
-            self._config.export_col_excludes = exclude_cols
-            self._config.export_level_excludes = exclude_levels
+            cols_exclude = self.query_one("#exclude_cols").excludes
+            levels_exclude = self.query_one("#exclude_levels").excludes
+            self._config.export_col_excludes = cols_exclude
+            self._config.export_level_excludes = levels_exclude
             dict_options = {
-                "exclude_cols": exclude_cols,
-                "exclude_levels": exclude_levels,
+                "cols_exclude": cols_exclude,
+                "levels_exclude": levels_exclude,
             }
             self.dismiss(dict_options)
-            # TODO: add code for saving defaults
         else:
             self.dismiss(False)

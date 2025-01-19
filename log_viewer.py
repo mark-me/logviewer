@@ -184,11 +184,7 @@ class LogViewer(App):
     def dialog_callback_export_options(self, options: str) -> None:
         if options:
             self.push_screen(
-                DialogExportLog(
-                    root=self._config.dir_default,
-                    log_file=self._log_file,
-                    export_options=options,
-                ),
+                DialogExportLog(root=self._config.dir_default),
                 self.dialog_callback_export_log,
             )
         else:
@@ -196,13 +192,8 @@ class LogViewer(App):
 
     def dialog_callback_export_log(self, file: str) -> None:
         if file:
-            options = {
-                "exclude_cols": self._config.export_col_excludes,
-                "exclude_levels": self._config.export_level_excludes,
-            }
-            self._log_file.export(file=file, options=options)
+            self._log_file.export(file=file, options=self._config.export_options)
             self.notify(f"Exporting file: '{file}'")
-
         else:
             self.notify("You cancelled opening a file!")
 

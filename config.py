@@ -16,8 +16,10 @@ class ConfigFile:
         colors = ["grey62", "steel_blue3", "dark_orange", "red"]
         self._defaults = {
             "level_colors": dict(zip(self._level_names, colors)),
-            "export_level_excludes": ["DEBUG", "INFO"],
-            "export_col_excludes": [],
+            "export":{
+                "level_excludes": ["DEBUG", "INFO"],
+                "col_excludes": [],
+            },
             "file_default": "",
             "dir_default": "",
         }
@@ -65,21 +67,25 @@ class ConfigFile:
         self._write_file()
 
     @property
+    def export_options(self) -> dict:
+        return self._data["export"]
+
+    @property
     def export_col_excludes(self) -> list:
-        return self._data["export_col_excludes"]
+        return self._data["export"]["col_excludes"]
 
     @export_col_excludes.setter
     def export_col_excludes(self, value: list) -> None:
-        self._data["export_col_excludes"] = value
+        self._data["export"]["col_excludes"] = value
         self._write_file()
 
     @property
     def export_level_excludes(self) -> list:
-        return self._data["export_level_excludes"]
+        return self._data["export"]["level_excludes"]
 
     @export_level_excludes.setter
     def export_level_excludes(self, value: list) -> None:
-        self._data["export_level_excludes"] = value
+        self._data["export"]["level_excludes"] = value
         self._write_file()
 
     def _read_file(self):
@@ -90,8 +96,8 @@ class ConfigFile:
             self._read_path_str(setting="file_default")
             self._read_path_str(setting="dir_default")
             self._read_dict(setting="level_colors")
-            self._read_list(setting="export_col_excludes")
-            self._read_list(setting="export_level_excludes")
+            self._read_list(setting="col_excludes", section="export")
+            self._read_list(setting="level_excludes", section="export")
         else:
             logger.warning(f"Found no config file '{self._file}'")
 
@@ -110,11 +116,14 @@ class ConfigFile:
                     f"Path '{self._data[setting]}' found for setting '{setting}'"
                 )
 
-    def _read_dict(self, setting: str) -> None:
+    def _read_dict(self, setting: str, section: str=None) -> None:
         # Set default colors if not settings present
         if setting not in self._data:
             logger.warning(f"Config file '{setting}' not present")
-            self._data[setting] = self._defaults[setting]
+            if section is None:
+                self._data[setting] = self._defaults[setting]
+            else:
+                self._data[section][setting] = self._defaults[setting]
         # Add defaults if not all level colors where set
         elif not all([level in self._data[setting] for level in self._level_names]):
             levels_missing = [
@@ -123,36 +132,28 @@ class ConfigFile:
                 if level not in self._data[setting]
             ]
             for level in levels_missing:
-                self._data[setting][level] = self._defaults[setting][level]
-        # Everything is as it should be
+                if section is None:
+                    self._data[setting][level] = self._defaults[setting][level]
+                else:
+                    self._data[section][setting][level] = self._defaults[setting][level]
+        # Everything is present in the configuration file
         else:
             logger.debug("Config file 'level_colors' used")
 
-    def _read_level_colors(self) -> None:
-        setting = "level_colors"
-        # Set default colors if not settings present
-        if setting not in self._data:
-            logger.warning(f"Config file '{setting}' not present")
-            self._data[setting] = self._defaults[setting]
-        # Add defaults if not all level colors where set
-        elif not all([level in self._data[setting] for level in self._level_names]):
-            levels_missing = [
-                level
-                for level in self._defaults[setting].keys()
-                if level not in self._data[setting]
-            ]
-            for level in levels_missing:
-                self._data[setting][level] = self._defaults[setting][level]
-        # Everything is as it should be
+    def _read_list(self, setting: str, section: str=None) -> None:
+        if section is None:
+            if setting not in self._data:
+                logger.warning(f"Config file setting '{setting}' not present")
+                self._data[setting] = self._defaults[setting]
         else:
-            logger.debug("Config file 'level_colors' used")
-
-    def _read_list(self, setting: str) -> None:
-        if setting not in self._data:
-            logger.warning(f"Config file setting '{setting}' not present")
-            self._data[setting] = self._defaults[setting]
-        else:
-            logger.debug(f"Settings found for {setting}")
+            if section in self._data:
+                if setting not in self._data[section]:
+                    logger.warning(f"Config file setting '{setting}' not present in '{section}'")
+                    self._data[section][setting] = self._defaults[section][setting]
+            else:
+                logger.warning(f"Config file section '{section}' not present")
+                self._data[section] = {}
+                self._data[section][setting] = self._defaults[section][setting]
 
     def _write_file(self) -> None:
         with open(self._file.stem + ".toml", "w") as f:

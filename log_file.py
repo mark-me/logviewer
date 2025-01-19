@@ -67,6 +67,11 @@ class LogFile:
 
     @property
     def runs(self) -> list:
+        """Lists the runs present in the logfile (based on de process)
+
+        Returns:
+            list: _description_
+        """
         lst_runs = []
         df_runs = (
             self._df_log.groupby("process")
@@ -77,12 +82,17 @@ class LogFile:
             lst_runs.append((row["asctime"].values[0], row["process"].values[0]))
         return lst_runs
 
-    def export(self, file: str, options: dict) -> bool:
+    def export(self, file: str, options: dict) -> None:
+        """Export the log to an Excel file, dropping rows and columns specified by options
+
+        Args:
+            file (str): The path of the Excel file
+            options (dict): Specifies which columns should be dropped and what 'levelname' values should be dropped
+        """
         df_export = self._df_log
-        if len(options["exclude_cols"]) > 0:
-            # Remove columns
+        if len(options["col_excludes"]) > 0:
+            df_export.drop(options["col_excludes"], axis=1, inplace=True)
             pass
-        if len(options["exclude_levels"]) > 0:
-            # Filter on levelnames
-            pass
-        df_export.to_excel(file)
+        if len(options["level_excludes"]) > 0:
+            df_export = df_export.loc[~df_export['levelname'].isin(options["level_excludes"])]
+        df_export.to_excel(file, index=False)
