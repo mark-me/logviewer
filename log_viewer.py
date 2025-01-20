@@ -179,7 +179,7 @@ class LogViewer(App):
             self.sub_title = file
             self.populate_table()
         else:
-            self.notify("You cancelled opening a file!")
+            self.notify("You cancelled opening a file!", severity="warning")
 
     def dialog_callback_export_options(self, options: str) -> None:
         if options:
@@ -188,14 +188,14 @@ class LogViewer(App):
                 self.dialog_callback_export_log,
             )
         else:
-            self.notify("You cancelled exporting a log!")
+            self.notify("You cancelled exporting a log!", severity="warning")
 
     def dialog_callback_export_log(self, file: str) -> None:
         if file:
             self._log_file.export(file=file, options=self._config.export_options)
             self.notify(f"Exporting file: '{file}'")
         else:
-            self.notify("You cancelled opening a file!")
+            self.notify("You cancelled opening a file!", severity="warning")
 
     def action_sort_by_asc_time(self) -> None:
         table = self.query_one(DataTable)
