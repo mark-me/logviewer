@@ -91,6 +91,7 @@ class LogViewer(App):
         )
 
     def on_mount(self) -> None:
+        self.notify("Hello, welcome to LogViewer", title="Welcome")
         if self._file_log == "":
             self.action_open_file()
         else:
