@@ -69,9 +69,8 @@ class LogViewer(App):
             self.sub_title = self._file_log
 
     def compose(self) -> ComposeResult:
-        """Create child widgets for the app."""
         yield Grid(
-            Header(),
+            Header(show_clock=True),
             Horizontal(DataTable(id="table"), id="panel_table"),
             Grid(
                 Vertical(
