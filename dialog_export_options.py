@@ -80,7 +80,6 @@ class DialogExportOptions(ModalScreen):
         config: ConfigFile,
         log_file: LogFile,
         root="/",
-        columns: list = [],
         name: str | None = None,
         id: str | None = None,
         classes: str | None = None,
