@@ -97,3 +97,9 @@ class LogFile:
         if len(options["level_excludes"]) > 0:
             df_export = df_export.loc[~df_export['levelname'].isin(options["level_excludes"])]
         df_export.to_excel(file, index=False)
+
+    def get_run(self, process: int) -> pd.DataFrame:
+        df_selected = pd.DataFrame()
+        if "process" in self._df_log.columns:
+            df_selected = self._df_log.loc[self._df_log["process"] == process]
+        return df_selected
