@@ -73,13 +73,14 @@ class LogFile:
             list: _description_
         """
         lst_runs = []
-        df_runs = (
-            self._df_log.groupby("process")
-            .agg({"asctime": ["max"]})
-            .reset_index()
-        ).sort_values("asctime", ascending=False)
+        idx_runs_max = (
+            self._df_log
+            .groupby("process").asctime.idxmax()
+        )
+        df_runs = self._df_log.loc[idx_runs_max, ["process", "asctime"]]
+        df_runs.sort_values(by="asctime", ascending=False, inplace=True)
         for index, row in df_runs.iterrows():
-            lst_runs.append((row["asctime"].values[0], row["process"].values[0]))
+            lst_runs.append((row["asctime"], row["process"]))
         return lst_runs
 
     def export(self, file: str, options: dict) -> None:
