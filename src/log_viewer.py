@@ -127,15 +127,15 @@ class LogViewer(App):
             label_id = "#label_" + col
             self.query_one(label_id).update("")
 
-    def populate_table(self) -> None:
+    def populate_table(self, lst_run_filter: list=None) -> None:
         """Populates the DataTable"""
         table = self.query_one("DataTable")
         table = table.clear(columns=True)
         table.cursor_type = "row"
         table.zebra_stripes = True
-        self._log_file = LogFile(file_log=self._file_log)
         for col in self._log_file.headers:
-            table.add_column(col, key=col)
+            if col != "_selected":
+                table.add_column(col, key=col)
         rows = self._log_file.entries_formatted(level_colors=self._config.level_colors)
         table.add_rows(rows)
         self.query_one("DataTable").focus()
@@ -156,6 +156,7 @@ class LogViewer(App):
             self.notify(f"Opened file: '{file}'")
             self._file_log = file
             self.sub_title = file
+            self._log_file = LogFile(file_log=self._file_log)
             self.populate_table()
         else:
             self.notify("You cancelled opening a file!", severity="warning")
@@ -178,8 +179,11 @@ class LogViewer(App):
 
     def dialog_callback_export_log(self, file: str) -> None:
         if file:
-            self._log_file.export(file=file, options=self._config.export_options)
-            self.notify(f"Exporting file: '{file}'")
+            is_exported = self._log_file.export(file=file, options=self._config.export_options)
+            if is_exported:
+                self.notify(f"Exporting file: '{file}'")
+            else:
+                self.notify("Nothing to export after filtering", severity="warning")
         else:
             self.notify("You cancelled opening a file!", severity="warning")
 
@@ -224,6 +228,8 @@ class LogViewer(App):
 
     def dialog_callback_filter_run(self, lst_runs: list) -> None:
         if lst_runs:
+            self._log_file.filter_runs(lst_runs=lst_runs)
+            self.populate_table()
             self.notify(f"Filtering runs: '{lst_runs}'")
         else:
             self.notify("You cancelled filtering runs!", severity="warning")

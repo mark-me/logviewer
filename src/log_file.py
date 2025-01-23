@@ -25,6 +25,7 @@ class LogFile:
         if self._file.exists():
             self._df_log = pd.read_json(self._file, orient="records", lines=True)
             self._df_log.sort_values(by="asctime", ascending=False, inplace=True)
+            self._df_log["_selected"] = True
             success = True
         else:
             logger.error(f"Log file '{self._file}' does not exist")
@@ -40,9 +41,11 @@ class LogFile:
 
     def entries_formatted(self, level_colors: dict) -> list:
         lst_entries = []
-        lst_columns = list(self._df_log.columns)
-        # Turn rows into tuples
-        for index, row in self._df_log.iterrows():
+        # Turn rows into tuples, taking only the runs that were selected
+        df_selected = self._df_log[self._df_log["_selected"]]
+        df_selected.drop("_selected", axis=1, inplace=True)
+        lst_columns = list(df_selected.columns)
+        for _, row in df_selected.iterrows():
             entry = ()
             for col in lst_columns:
                 # Color levelname
@@ -79,27 +82,37 @@ class LogFile:
         )
         df_runs = self._df_log.loc[idx_runs_max, ["process", "asctime"]]
         df_runs.sort_values(by="asctime", ascending=False, inplace=True)
-        for i, row in df_runs.iterrows():
-            lst_runs.append((row["asctime"], row["process"], True))
+        i = 0
+        for _, row in df_runs.iterrows():
+            lst_runs.append((row["asctime"], row["process"], i==0))
+            i = i + 1
         return lst_runs
 
-    def export(self, file: str, options: dict) -> None:
+    def filter_runs(self, lst_runs: list) -> None:
+        """_summary_
+
+        Args:
+            lst_runs (list): _description_
+
+        Returns:
+            _type_: _description_
+        """
+        self._df_log.loc[:, "_selected"] = self._df_log["process"].isin(lst_runs)
+
+    def export(self, file: str, options: dict) -> bool:
         """Export the log to an Excel file, dropping rows and columns specified by options
 
         Args:
             file (str): The path of the Excel file
             options (dict): Specifies which columns should be dropped and what 'levelname' values should be dropped
         """
-        df_export = self._df_log
+        df_export = self._df_log[self._df_log["_selected"]]
+        df_export.drop("_selected", axis=1, inplace=True)
         if len(options["col_excludes"]) > 0:
             df_export.drop(options["col_excludes"], axis=1, inplace=True)
             pass
         if len(options["level_excludes"]) > 0:
             df_export = df_export.loc[~df_export['levelname'].isin(options["level_excludes"])]
-        df_export.to_excel(file, index=False)
+        if df_export.shape[0] > 0:
+            df_export.to_excel(file, index=False)
 
-    def get_run(self, process: int) -> pd.DataFrame:
-        df_selected = pd.DataFrame()
-        if "process" in self._df_log.columns:
-            df_selected = self._df_log.loc[self._df_log["process"] == process]
-        return df_selected
