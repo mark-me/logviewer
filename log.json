@@ -1,116 +1,82 @@
-{"asctime": "2025-01-18 22:49:17,577", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 89530}
-{"asctime": "2025-01-18 22:59:07,282", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 92975}
-{"asctime": "2025-01-18 22:59:07,284", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 92975}
-{"asctime": "2025-01-18 22:59:07,284", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 92975}
-{"asctime": "2025-01-18 22:59:07,284", "levelname": "WARNING", "message": "Config file setting 'export_col_excludes' not present", "module": "config", "funcName": "_read_list", "process": 92975}
-{"asctime": "2025-01-18 22:59:07,285", "levelname": "WARNING", "message": "Config file setting 'export_level_excludes' not present", "module": "config", "funcName": "_read_list", "process": 92975}
-{"asctime": "2025-01-18 22:59:07,356", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 92975}
-{"asctime": "2025-01-18 22:59:45,470", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 93326}
-{"asctime": "2025-01-18 22:59:45,472", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 93326}
-{"asctime": "2025-01-18 22:59:45,473", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 93326}
-{"asctime": "2025-01-18 22:59:45,473", "levelname": "WARNING", "message": "Config file setting 'export_col_excludes' not present", "module": "config", "funcName": "_read_list", "process": 93326}
-{"asctime": "2025-01-18 22:59:45,473", "levelname": "WARNING", "message": "Config file setting 'export_level_excludes' not present", "module": "config", "funcName": "_read_list", "process": 93326}
-{"asctime": "2025-01-18 22:59:45,545", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 93326}
-{"asctime": "2025-01-18 23:02:04,048", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 94312}
-{"asctime": "2025-01-18 23:02:04,050", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 94312}
-{"asctime": "2025-01-18 23:02:04,050", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 94312}
-{"asctime": "2025-01-18 23:02:04,051", "levelname": "WARNING", "message": "Config file setting 'export_col_excludes' not present", "module": "config", "funcName": "_read_list", "process": 94312}
-{"asctime": "2025-01-18 23:02:04,051", "levelname": "WARNING", "message": "Config file setting 'export_level_excludes' not present", "module": "config", "funcName": "_read_list", "process": 94312}
-{"asctime": "2025-01-18 23:02:04,122", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 94312}
-{"asctime": "2025-01-18 23:20:30,862", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 100853}
-{"asctime": "2025-01-18 23:20:30,865", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 100853}
-{"asctime": "2025-01-18 23:20:30,865", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 100853}
-{"asctime": "2025-01-18 23:20:30,865", "levelname": "WARNING", "message": "Config file setting 'export_col_excludes' not present", "module": "config", "funcName": "_read_list", "process": 100853}
-{"asctime": "2025-01-18 23:20:30,865", "levelname": "WARNING", "message": "Config file setting 'export_level_excludes' not present", "module": "config", "funcName": "_read_list", "process": 100853}
-{"asctime": "2025-01-18 23:21:47,457", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 101380}
-{"asctime": "2025-01-18 23:21:47,460", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 101380}
-{"asctime": "2025-01-18 23:21:47,460", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 101380}
-{"asctime": "2025-01-18 23:21:47,460", "levelname": "WARNING", "message": "Config file setting 'export_col_excludes' not present", "module": "config", "funcName": "_read_list", "process": 101380}
-{"asctime": "2025-01-18 23:21:47,461", "levelname": "WARNING", "message": "Config file setting 'export_level_excludes' not present", "module": "config", "funcName": "_read_list", "process": 101380}
-{"asctime": "2025-01-18 23:21:49,744", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 101380}
-{"asctime": "2025-01-18 23:29:18,861", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 104331}
-{"asctime": "2025-01-18 23:29:18,863", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 104331}
-{"asctime": "2025-01-18 23:29:18,864", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 104331}
-{"asctime": "2025-01-18 23:29:18,864", "levelname": "WARNING", "message": "Config file setting 'export_col_excludes' not present", "module": "config", "funcName": "_read_list", "process": 104331}
-{"asctime": "2025-01-18 23:29:18,864", "levelname": "WARNING", "message": "Config file setting 'export_level_excludes' not present", "module": "config", "funcName": "_read_list", "process": 104331}
-{"asctime": "2025-01-18 23:49:41,546", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 111667}
-{"asctime": "2025-01-18 23:49:41,548", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 111667}
-{"asctime": "2025-01-18 23:49:41,548", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 111667}
-{"asctime": "2025-01-18 23:49:41,548", "levelname": "WARNING", "message": "Config file setting 'export_col_excludes' not present", "module": "config", "funcName": "_read_list", "process": 111667}
-{"asctime": "2025-01-18 23:49:41,548", "levelname": "WARNING", "message": "Config file setting 'export_level_excludes' not present", "module": "config", "funcName": "_read_list", "process": 111667}
-{"asctime": "2025-01-18 23:49:59,640", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 111979}
-{"asctime": "2025-01-18 23:49:59,642", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 111979}
-{"asctime": "2025-01-18 23:49:59,642", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 111979}
-{"asctime": "2025-01-18 23:49:59,643", "levelname": "WARNING", "message": "Config file setting 'export_col_excludes' not present", "module": "config", "funcName": "_read_list", "process": 111979}
-{"asctime": "2025-01-18 23:49:59,643", "levelname": "WARNING", "message": "Config file setting 'export_level_excludes' not present", "module": "config", "funcName": "_read_list", "process": 111979}
-{"asctime": "2025-01-18 23:49:59,725", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 111979}
-{"asctime": "2025-01-18 23:53:32,961", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 113793}
-{"asctime": "2025-01-18 23:53:32,989", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 113793}
-{"asctime": "2025-01-18 23:53:32,989", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 113793}
-{"asctime": "2025-01-18 23:53:32,989", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 113793}
-{"asctime": "2025-01-18 23:53:32,989", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 113793}
-{"asctime": "2025-01-18 23:53:32,990", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 113793}
-{"asctime": "2025-01-18 23:53:33,036", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 113793}
-{"asctime": "2025-01-18 23:55:34,134", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 114608}
-{"asctime": "2025-01-18 23:55:34,162", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 114608}
-{"asctime": "2025-01-18 23:55:34,162", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 114608}
-{"asctime": "2025-01-18 23:55:34,162", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 114608}
-{"asctime": "2025-01-18 23:55:34,162", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 114608}
-{"asctime": "2025-01-18 23:55:34,162", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 114608}
-{"asctime": "2025-01-18 23:55:34,209", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 114608}
-{"asctime": "2025-01-18 23:56:35,244", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 115123}
-{"asctime": "2025-01-18 23:56:35,246", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 115123}
-{"asctime": "2025-01-18 23:56:35,246", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 115123}
-{"asctime": "2025-01-18 23:56:35,246", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 115123}
-{"asctime": "2025-01-18 23:56:35,247", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 115123}
-{"asctime": "2025-01-18 23:56:35,247", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 115123}
-{"asctime": "2025-01-18 23:56:35,320", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 115123}
-{"asctime": "2025-01-18 23:57:53,398", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 115821}
-{"asctime": "2025-01-18 23:57:53,425", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 115821}
-{"asctime": "2025-01-18 23:57:53,425", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 115821}
-{"asctime": "2025-01-18 23:57:53,425", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 115821}
-{"asctime": "2025-01-18 23:57:53,425", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 115821}
-{"asctime": "2025-01-18 23:57:53,426", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 115821}
-{"asctime": "2025-01-18 23:57:53,471", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 115821}
-{"asctime": "2025-01-18 23:58:03,411", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 115983}
-{"asctime": "2025-01-18 23:58:03,438", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 115983}
-{"asctime": "2025-01-18 23:58:03,438", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 115983}
-{"asctime": "2025-01-18 23:58:03,439", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 115983}
-{"asctime": "2025-01-18 23:58:03,439", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 115983}
-{"asctime": "2025-01-18 23:58:03,439", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 115983}
-{"asctime": "2025-01-18 23:58:03,488", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 115983}
-{"asctime": "2025-01-18 23:58:52,820", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 116430}
-{"asctime": "2025-01-18 23:58:52,848", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 116430}
-{"asctime": "2025-01-18 23:58:52,848", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 116430}
-{"asctime": "2025-01-18 23:58:52,848", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 116430}
-{"asctime": "2025-01-18 23:58:52,849", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 116430}
-{"asctime": "2025-01-18 23:58:52,849", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 116430}
-{"asctime": "2025-01-18 23:58:52,895", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 116430}
-{"asctime": "2025-01-18 23:59:14,269", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 116719}
-{"asctime": "2025-01-18 23:59:14,296", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 116719}
-{"asctime": "2025-01-18 23:59:14,296", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 116719}
-{"asctime": "2025-01-18 23:59:14,296", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 116719}
-{"asctime": "2025-01-18 23:59:14,297", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 116719}
-{"asctime": "2025-01-18 23:59:14,297", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 116719}
-{"asctime": "2025-01-18 23:59:14,345", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 116719}
-{"asctime": "2025-01-19 00:00:25,177", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 117663}
-{"asctime": "2025-01-19 00:00:25,205", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 117663}
-{"asctime": "2025-01-19 00:00:25,206", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 117663}
-{"asctime": "2025-01-19 00:00:25,206", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 117663}
-{"asctime": "2025-01-19 00:00:25,206", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 117663}
-{"asctime": "2025-01-19 00:00:25,206", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 117663}
-{"asctime": "2025-01-19 00:00:25,253", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 117663}
-{"asctime": "2025-01-19 00:06:54,925", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 120505}
-{"asctime": "2025-01-19 00:06:54,927", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 120505}
-{"asctime": "2025-01-19 00:06:54,927", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 120505}
-{"asctime": "2025-01-19 00:06:54,927", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 120505}
-{"asctime": "2025-01-19 00:06:54,928", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 120505}
-{"asctime": "2025-01-19 00:06:54,928", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 120505}
-{"asctime": "2025-01-19 00:06:55,000", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 120505}
-{"asctime": "2025-01-19 00:07:49,211", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 120943}
-{"asctime": "2025-01-19 00:07:49,213", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 120943}
-{"asctime": "2025-01-19 00:07:49,214", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 120943}
-{"asctime": "2025-01-19 00:07:49,214", "levelname": "DEBUG", "message": "Config file 'level_colors' used", "module": "config", "funcName": "_read_dict", "process": 120943}
-{"asctime": "2025-01-19 00:07:49,214", "levelname": "DEBUG", "message": "Settings found for export_col_excludes", "module": "config", "funcName": "_read_list", "process": 120943}
-{"asctime": "2025-01-19 00:07:49,214", "levelname": "DEBUG", "message": "Settings found for export_level_excludes", "module": "config", "funcName": "_read_list", "process": 120943}
-{"asctime": "2025-01-19 00:07:49,287", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 120943}
+{"asctime": "2025-01-22 23:07:22,406", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 32265}
+{"asctime": "2025-01-22 23:07:22,407", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 32265}
+{"asctime": "2025-01-22 23:07:22,407", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 32265}
+{"asctime": "2025-01-22 23:07:22,479", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 32265}
+{"asctime": "2025-01-22 23:13:02,003", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 34723}
+{"asctime": "2025-01-22 23:13:02,005", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 34723}
+{"asctime": "2025-01-22 23:13:02,005", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 34723}
+{"asctime": "2025-01-22 23:13:02,006", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 34723}
+{"asctime": "2025-01-22 23:13:02,006", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 34723}
+{"asctime": "2025-01-22 23:13:02,078", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 34723}
+{"asctime": "2025-01-22 23:14:38,009", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 35464}
+{"asctime": "2025-01-22 23:14:38,011", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 35464}
+{"asctime": "2025-01-22 23:14:38,011", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 35464}
+{"asctime": "2025-01-22 23:14:38,012", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 35464}
+{"asctime": "2025-01-22 23:14:38,012", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 35464}
+{"asctime": "2025-01-22 23:14:38,085", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 35464}
+{"asctime": "2025-01-22 23:24:39,271", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 39393}
+{"asctime": "2025-01-22 23:24:39,273", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 39393}
+{"asctime": "2025-01-22 23:24:39,273", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 39393}
+{"asctime": "2025-01-22 23:24:39,273", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 39393}
+{"asctime": "2025-01-22 23:24:39,273", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 39393}
+{"asctime": "2025-01-22 23:24:39,347", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 39393}
+{"asctime": "2025-01-22 23:26:08,989", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 40134}
+{"asctime": "2025-01-22 23:26:08,992", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 40134}
+{"asctime": "2025-01-22 23:26:08,992", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 40134}
+{"asctime": "2025-01-22 23:26:08,993", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 40134}
+{"asctime": "2025-01-22 23:26:08,993", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 40134}
+{"asctime": "2025-01-22 23:26:09,077", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 40134}
+{"asctime": "2025-01-22 23:28:51,611", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 41249}
+{"asctime": "2025-01-22 23:28:51,614", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 41249}
+{"asctime": "2025-01-22 23:28:51,614", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 41249}
+{"asctime": "2025-01-22 23:28:51,614", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 41249}
+{"asctime": "2025-01-22 23:28:51,614", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 41249}
+{"asctime": "2025-01-22 23:28:51,691", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 41249}
+{"asctime": "2025-01-22 23:30:26,423", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 41966}
+{"asctime": "2025-01-22 23:30:26,425", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 41966}
+{"asctime": "2025-01-22 23:30:26,426", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 41966}
+{"asctime": "2025-01-22 23:30:26,426", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 41966}
+{"asctime": "2025-01-22 23:30:26,426", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 41966}
+{"asctime": "2025-01-22 23:30:26,497", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 41966}
+{"asctime": "2025-01-22 23:31:38,107", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 42552}
+{"asctime": "2025-01-22 23:31:38,109", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 42552}
+{"asctime": "2025-01-22 23:31:38,109", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 42552}
+{"asctime": "2025-01-22 23:31:38,110", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 42552}
+{"asctime": "2025-01-22 23:31:38,110", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 42552}
+{"asctime": "2025-01-22 23:31:38,186", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 42552}
+{"asctime": "2025-01-22 23:36:19,091", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 45294}
+{"asctime": "2025-01-22 23:36:19,093", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 45294}
+{"asctime": "2025-01-22 23:36:19,093", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 45294}
+{"asctime": "2025-01-22 23:36:19,094", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 45294}
+{"asctime": "2025-01-22 23:36:19,094", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 45294}
+{"asctime": "2025-01-22 23:36:19,166", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 45294}
+{"asctime": "2025-01-22 23:36:32,312", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 45525}
+{"asctime": "2025-01-22 23:36:32,314", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 45525}
+{"asctime": "2025-01-22 23:36:32,314", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 45525}
+{"asctime": "2025-01-22 23:36:32,315", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 45525}
+{"asctime": "2025-01-22 23:36:32,315", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 45525}
+{"asctime": "2025-01-22 23:36:32,388", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 45525}
+{"asctime": "2025-01-22 23:59:00,181", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 9365}
+{"asctime": "2025-01-22 23:59:00,184", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 9365}
+{"asctime": "2025-01-22 23:59:00,184", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 9365}
+{"asctime": "2025-01-22 23:59:00,185", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 9365}
+{"asctime": "2025-01-22 23:59:00,185", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 9365}
+{"asctime": "2025-01-22 23:59:00,285", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 9365}
+{"asctime": "2025-01-22 23:59:26,519", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 9628}
+{"asctime": "2025-01-22 23:59:26,521", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 9628}
+{"asctime": "2025-01-22 23:59:26,521", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 9628}
+{"asctime": "2025-01-22 23:59:26,522", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 9628}
+{"asctime": "2025-01-22 23:59:26,522", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 9628}
+{"asctime": "2025-01-22 23:59:26,593", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 9628}
+{"asctime": "2025-01-23 00:00:19,820", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 10229}
+{"asctime": "2025-01-23 00:00:19,823", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 10229}
+{"asctime": "2025-01-23 00:00:19,823", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 10229}
+{"asctime": "2025-01-23 00:00:19,823", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 10229}
+{"asctime": "2025-01-23 00:00:19,823", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 10229}
+{"asctime": "2025-01-23 00:00:19,895", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 10229}
+{"asctime": "2025-01-23 20:45:05,565", "levelname": "DEBUG", "message": "Found config file 'config.toml'", "module": "config", "funcName": "_read_file", "process": 23025}
+{"asctime": "2025-01-23 20:45:05,566", "levelname": "INFO", "message": "Path 'log.json' found for setting 'file_default'", "module": "config", "funcName": "_read_path_str", "process": 23025}
+{"asctime": "2025-01-23 20:45:05,566", "levelname": "INFO", "message": "Path '/home/mark/Development' found for setting 'dir_default'", "module": "config", "funcName": "_read_path_str", "process": 23025}
+{"asctime": "2025-01-23 20:45:05,566", "levelname": "WARNING", "message": "Config file section 'export' not present", "module": "config", "funcName": "_read_list", "process": 23025}
+{"asctime": "2025-01-23 20:45:05,566", "levelname": "WARNING", "message": "Config file setting 'level_excludes' not present in 'export'", "module": "config", "funcName": "_read_list", "process": 23025}
+{"asctime": "2025-01-23 20:45:05,587", "levelname": "DEBUG", "message": "Using selector: EpollSelector", "module": "selector_events", "funcName": "__init__", "process": 23025}

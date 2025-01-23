@@ -7,7 +7,7 @@ from textual.containers import Grid, Horizontal, Vertical
 from textual.widgets import DataTable, Footer, Header, Label, TextArea
 
 from config import ConfigFile
-from dialog_export_selections import DialogExportOptions
+from dialog_export_options import DialogExportOptions
 from log_file import LogFile
 from logging_config import logging
 from dialog_open_log import DialogOpenLog

@@ -2,5 +2,5 @@
 set -e
 cd "$(dirname "$0")"
 source ".venv/bin/activate"
-python main.py
+python ./src/main.py
 deactivate
