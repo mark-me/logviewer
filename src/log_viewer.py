@@ -12,6 +12,7 @@ from log_file import LogFile
 from logging_config import logging
 from dialog_open_log import DialogOpenLog
 from dialog_export_log import DialogExportLog
+from dialog_filter_runs import DialogFilterRuns
 
 logger = logging.getLogger(__name__)
 
@@ -40,11 +41,12 @@ class LogViewer(App):
 
     BINDINGS = [
         ("q", "quit", "Quit"),
-        ("f", "open_file", "Open"),
+        ("o", "open_file", "Open"),
         ("r", "reload_log", "Reload"),
         ("e", "export_file", "Export log"),
         ("a", "sort_by_asc_time", "Sort asctime"),
-        ("d", "set_default_file", "Current log as default"),
+        ("f", "filter_run", "Filter runs"),
+        ("d", "set_default_file", "Current as default"),
         ("t", "toggle_dark", "Toggle dark mode"),
     ]
 
@@ -149,29 +151,6 @@ class LogViewer(App):
             self.dialog_callback_open_log,
         )
 
-    def action_export_file(self) -> None:
-        """Opens a file chooser dialog"""
-        self.push_screen(
-            DialogExportOptions(config=self._config, log_file=self._log_file),
-            self.dialog_callback_export_options,
-        )
-
-    def action_reload_log(self) -> None:
-        logger.debug("Reloading log data")
-        self.populate_table()
-        self.notify(f"Reloaded the log file '{self._file_log}'")
-
-    def action_toggle_dark(self) -> None:
-        """An action to toggle dark mode."""
-        self.theme = (
-            "textual-dark" if self.theme == "textual-light" else "textual-light"
-        )
-        self.notify(f"Switched to theme '{self.theme}'")
-
-    def action_set_default_file(self) -> None:
-        self._config.file_default = self._file_log
-        self.notify(f"Set '{self._file_log}' as default log file")
-
     def dialog_callback_open_log(self, file: str) -> None:
         if file:
             self.notify(f"Opened file: '{file}'")
@@ -180,6 +159,13 @@ class LogViewer(App):
             self.populate_table()
         else:
             self.notify("You cancelled opening a file!", severity="warning")
+
+    def action_export_file(self) -> None:
+        """Opens a file chooser dialog"""
+        self.push_screen(
+            DialogExportOptions(config=self._config, log_file=self._log_file),
+            self.dialog_callback_export_options,
+        )
 
     def dialog_callback_export_options(self, options: str) -> None:
         if options:
@@ -197,6 +183,22 @@ class LogViewer(App):
         else:
             self.notify("You cancelled opening a file!", severity="warning")
 
+    def action_reload_log(self) -> None:
+        logger.debug("Reloading log data")
+        self.populate_table()
+        self.notify(f"Reloaded the log file '{self._file_log}'")
+
+    def action_toggle_dark(self) -> None:
+        """An action to toggle dark mode."""
+        self.theme = (
+            "textual-dark" if self.theme == "textual-light" else "textual-light"
+        )
+        self.notify(f"Switched to theme '{self.theme}'")
+
+    def action_set_default_file(self) -> None:
+        self._config.file_default = self._file_log
+        self.notify(f"Set '{self._file_log}' as default log file")
+
     def action_sort_by_asc_time(self) -> None:
         table = self.query_one(DataTable)
         table.sort(
@@ -213,3 +215,15 @@ class LogViewer(App):
         else:
             self.current_sorts.add(sort_type)
         return reverse
+
+    def action_filter_run(self) -> None:
+        self.push_screen(
+            DialogFilterRuns(log_file=self._log_file),
+            self.dialog_callback_filter_run,
+        )
+
+    def dialog_callback_filter_run(self, lst_runs: list) -> None:
+        if lst_runs:
+            self.notify(f"Filtering runs: '{lst_runs}'")
+        else:
+            self.notify("You cancelled filtering runs!", severity="warning")

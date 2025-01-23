@@ -79,8 +79,8 @@ class LogFile:
         )
         df_runs = self._df_log.loc[idx_runs_max, ["process", "asctime"]]
         df_runs.sort_values(by="asctime", ascending=False, inplace=True)
-        for _, row in df_runs.iterrows():
-            lst_runs.append((row["asctime"], row["process"]))
+        for i, row in df_runs.iterrows():
+            lst_runs.append((row["asctime"], row["process"], True))
         return lst_runs
 
     def export(self, file: str, options: dict) -> None:

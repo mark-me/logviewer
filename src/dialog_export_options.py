@@ -124,12 +124,6 @@ class DialogExportOptions(ModalScreen):
             id="export_options_dialog",
         )
 
-    def on_mount(self) -> None:
-        """
-        Focus the input widget so the user can name the file
-        """
-        pass
-
     def on_button_pressed(self, event: Button.Pressed) -> None:
         """
         Event handler for when the load file button is pressed
