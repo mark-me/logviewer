@@ -60,7 +60,9 @@ class LogFile:
 
     @property
     def headers(self) -> tuple:
-        headers = tuple(self._df_log.columns)
+        columns = list(self._df_log.columns)
+        columns.remove("_selected")
+        headers = tuple(columns)
         return headers
 
     @property
@@ -106,13 +108,28 @@ class LogFile:
             file (str): The path of the Excel file
             options (dict): Specifies which columns should be dropped and what 'levelname' values should be dropped
         """
-        df_export = self._df_log[self._df_log["_selected"]]
-        df_export.drop("_selected", axis=1, inplace=True)
-        if len(options["col_excludes"]) > 0:
-            df_export.drop(options["col_excludes"], axis=1, inplace=True)
-            pass
-        if len(options["level_excludes"]) > 0:
-            df_export = df_export.loc[~df_export['levelname'].isin(options["level_excludes"])]
+        success = False
+        df_export = self.filtered(options=options)
         if df_export.shape[0] > 0:
             df_export.to_excel(file, index=False)
+            success = True
+        return success
+
+    def filtered(self, options: dict) -> pd.DataFrame:
+        """The log filtered based on options and run filter
+
+        Args:
+            options (dict): Specifies which columns should be dropped and what rows should be dropped on 'levelname' values
+
+        Returns:
+            pd.DataFrame: A filtered set of log entries and columns
+        """
+        df_filtered = self._df_log[self._df_log["_selected"]]
+        df_filtered.drop("_selected", axis=1, inplace=True)
+        if len(options["col_excludes"]) > 0:
+            print("me")
+            df_filtered.drop(options["col_excludes"], axis=1, inplace=True)
+        if len(options["level_excludes"]) > 0:
+            df_filtered = df_filtered.loc[~df_filtered['levelname'].isin(options["level_excludes"])]
+        return df_filtered
 

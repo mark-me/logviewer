@@ -96,23 +96,23 @@ class DialogExportOptions(ModalScreen):
         Create the widgets for the SaveFileDialog's user interface
         """
         level_names = ["DEBUG", "INFO", "WARNING", "ERROR"]
-        levels_exclude = self._config.export_level_excludes
+        level_excludes = self._config.export_level_excludes
         cols_log = self._log_file.headers
-        cols_exclude = self._config.export_col_excludes
+        col_excludes = self._config.export_col_excludes
         yield Grid(
             Header(),
             Label(f"Export options: {self._root}", id="folder"),
             Vertical(
                 Label("Columns to include"),
                 SelectionList(
-                    values=cols_log, excludes=cols_exclude, id="exclude_cols"
+                    values=cols_log, excludes=col_excludes, id="exclude_cols"
                 ),
                 classes="box",
             ),
             Vertical(
                 Label("Levels to include"),
                 SelectionList(
-                    values=level_names, excludes=levels_exclude, id="exclude_levels"
+                    values=level_names, excludes=level_excludes, id="exclude_levels"
                 ),
                 classes="box",
             ),
@@ -130,13 +130,13 @@ class DialogExportOptions(ModalScreen):
         """
         event.stop()
         if event.button.id == "btn_file":
-            cols_exclude = self.query_one("#exclude_cols").excludes
-            levels_exclude = self.query_one("#exclude_levels").excludes
-            self._config.export_col_excludes = cols_exclude
-            self._config.export_level_excludes = levels_exclude
+            col_excludes = self.query_one("#exclude_cols").excludes
+            level_excludes = self.query_one("#exclude_levels").excludes
+            self._config.export_col_excludes = col_excludes
+            self._config.export_level_excludes = level_excludes
             dict_options = {
-                "cols_exclude": cols_exclude,
-                "levels_exclude": levels_exclude,
+                "col_excludes": col_excludes,
+                "level_excludes": level_excludes,
             }
             self.dismiss(dict_options)
         else:

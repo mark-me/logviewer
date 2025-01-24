@@ -127,7 +127,7 @@ class LogViewer(App):
             label_id = "#label_" + col
             self.query_one(label_id).update("")
 
-    def populate_table(self, lst_run_filter: list=None) -> None:
+    def populate_table(self, lst_run_filter: list = None) -> None:
         """Populates the DataTable"""
         table = self.query_one("DataTable")
         table = table.clear(columns=True)
@@ -170,16 +170,25 @@ class LogViewer(App):
 
     def dialog_callback_export_options(self, options: str) -> None:
         if options:
-            self.push_screen(
-                DialogExportLog(root=self._config.dir_default),
-                self.dialog_callback_export_log,
-            )
+            df_filtered = self._log_file.filtered(options=options)
+            if df_filtered.shape[0] > 0:
+                self.push_screen(
+                    DialogExportLog(root=self._config.dir_default),
+                    self.dialog_callback_export_log,
+                )
+            else:
+                self.notify(
+                    "Noting to export due to filter and levelname exclusion!",
+                    severity="error",
+                )
         else:
             self.notify("You cancelled exporting a log!", severity="warning")
 
     def dialog_callback_export_log(self, file: str) -> None:
         if file:
-            is_exported = self._log_file.export(file=file, options=self._config.export_options)
+            is_exported = self._log_file.export(
+                file=file, options=self._config.export_options
+            )
             if is_exported:
                 self.notify(f"Exporting file: '{file}'")
             else:
