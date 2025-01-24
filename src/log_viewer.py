@@ -198,7 +198,7 @@ class LogViewer(App):
                 self.notify("Error export", severity="warning")
         else:
             self.notify(
-                "You cancelled opening a file!", title="Cancelled", severity="warning"
+                "You cancelled exporting part of the log!", title="Cancelled", severity="warning"
             )
 
     def action_reload_log(self) -> None:

@@ -134,6 +134,7 @@ class DialogExportOptions(ModalScreen):
             level_excludes = self.query_one("#exclude_levels").excludes
             self._config.export_col_excludes = col_excludes
             self._config.export_level_excludes = level_excludes
+            self.notify("Saved export options.", title="Configuration")
             dict_options = {
                 "col_excludes": col_excludes,
                 "level_excludes": level_excludes,
