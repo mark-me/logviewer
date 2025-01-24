@@ -159,7 +159,9 @@ class LogViewer(App):
             self._log_file = LogFile(file_log=self._file_log)
             self.populate_table()
         else:
-            self.notify("You cancelled opening a file!", severity="warning")
+            self.notify(
+                "You cancelled opening a file!", title="Cancelled", severity="warning"
+            )
 
     def action_export_file(self) -> None:
         """Opens a file chooser dialog"""
@@ -179,6 +181,7 @@ class LogViewer(App):
             else:
                 self.notify(
                     "Noting to export due to filter and levelname exclusion!",
+                    title="Export aborted",
                     severity="error",
                 )
         else:
@@ -192,9 +195,11 @@ class LogViewer(App):
             if is_exported:
                 self.notify(f"Exporting file: '{file}'")
             else:
-                self.notify("Nothing to export after filtering", severity="warning")
+                self.notify("Error export", severity="warning")
         else:
-            self.notify("You cancelled opening a file!", severity="warning")
+            self.notify(
+                "You cancelled opening a file!", title="Cancelled", severity="warning"
+            )
 
     def action_reload_log(self) -> None:
         logger.debug("Reloading log data")
@@ -210,7 +215,9 @@ class LogViewer(App):
 
     def action_set_default_file(self) -> None:
         self._config.file_default = self._file_log
-        self.notify(f"Set '{self._file_log}' as default log file")
+        self.notify(
+            f"Set '{self._file_log}' as default log file", title="Configuration"
+        )
 
     def action_sort_by_asc_time(self) -> None:
         table = self.query_one(DataTable)
@@ -241,4 +248,6 @@ class LogViewer(App):
             self.populate_table()
             self.notify(f"Filtering runs: '{lst_runs}'")
         else:
-            self.notify("You cancelled filtering runs!", severity="warning")
+            self.notify(
+                "You cancelled filtering runs!", title="Cancelled", severity="warning"
+            )
